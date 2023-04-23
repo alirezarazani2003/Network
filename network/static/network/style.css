@@ -1,0 +1,204 @@
+#alll{
+    margin-left: 20px;
+}
+
+.Like{
+    width: auto;
+    height: 25px;
+    font-size: 13px;
+    border-radius: 3px;
+    margin-left: 20px;
+    position: relative;
+    bottom: 12px;
+    background-color: white;
+    color: #007bff;
+    border: solid 1px #007bff;
+
+}
+.Like:focus{
+    outline: none;
+}
+.c-div{
+    width: 60px;
+    height: 30px;
+    
+
+}
+#dl{
+    border: 1px black solid;
+    
+    width: 60px;
+    height: 30px;
+    position: relative;
+    left: 50px;
+
+}
+#im-h{
+    position: relative;
+    bottom: 20px;
+}
+.d-form{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border: 1px solid rgb(185, 185, 185);
+    height: 130px;
+    border-radius: 4px;
+    
+}
+.textarea{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 97%;
+    position: relative;
+    bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid rgb(185, 185, 185);
+    max-height: 50px;
+    padding-left: 5px;
+
+}
+.p-form{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-weight: 500;
+    color: #007bffa6;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+
+    
+}
+h1{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.submit{
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    margin-left: 20px;
+    position: relative;
+    bottom: 14px;
+
+}
+.submit:hover{
+    background-color: #007bffe1;
+    
+}
+.for{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border: 1px solid rgb(185, 185, 185);
+    height: 150px;
+    border-radius: 4px;
+    
+}
+#username{
+
+    margin-left: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    top: 15px;
+
+}
+#a-username{
+    color: black;
+    font-weight: 600;
+    font-size: larger;
+    font-family: sans-serif;
+}
+.Edite{
+    color: #007bff;
+    margin-left: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    width: fit-content;
+}
+.Edite:hover{
+    text-decoration: underline;
+}
+.d-con{
+    margin-left: 20px;
+    font-size: 14px;
+    position: relative;
+    bottom: 18px;
+}
+#timestamp{
+    color: rgb(160, 160, 160);
+}
+#s-con{
+    font-weight: 500;
+}
+#s-like{
+    position: relative;
+    left: 55px;
+    bottom: 18px;
+}
+#page-num{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#d-all{
+    
+    position: absolute;
+    
+
+}
+#d-edite{
+height: 35px;
+}
+.follow{
+    max-width: 70px;
+    min-width: 50px;
+    width: auto;
+    height: 30px;
+    font-size: 15px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    margin-left: 20px;
+    position: relative;
+
+}
+.follow:focus{
+    outline: none;
+}
+#unfollow{
+    color: white;
+    margin: 5px;
+    position: relative;
+    top: 3px;
+    text-decoration: none;
+}
+#follow{
+    color: white;
+    margin: 13px;
+    position: relative;
+    top: 3px;
+    text-decoration: none;
+}
+#follow-num{
+    position: absolute;
+    left: 15%;
+    top: 14%;
+    font-weight: 600;
+}
+#unfollow-num{
+    position: absolute;
+    left: 25%;
+    top: 14%;
+    font-weight: 600;
+}
+button:hover{
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    color: white;
+}
+.textarea:focus{
+    outline: none;
+}

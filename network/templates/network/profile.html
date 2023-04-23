@@ -1,0 +1,77 @@
+{% extends "network/layout.html" %}
+
+
+{% block head %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#Content').style.display = 'block';
+    document.querySelector('#edite').style.display = 'none';
+});
+</script>
+{% endblock %}
+
+
+{% block body %}
+
+<div id="Content">
+<h1>{{username}}</h1> 
+<p id="follow-num">Followers : {{ X }}</p>
+<p id="unfollow-num">Following : {{ Y }}</p>
+
+
+{% if Co == 1 %}
+<div class="follow"><a id="follow" href="{% url 'follow' ID %}" >Follow</a></div>
+{% endif %}
+
+{% if Co == 0  %}
+<div class="follow"><a href="{% url 'unfollow' ID %}" id="unfollow" >Unfollow</a></div>
+{% endif %}
+
+{% for p in Posts %}
+<div class="for">
+<div id="username"><a href="{% url 'profile' p.user.id %}" id="a-username">{{ p.user }}</a></div>
+
+
+<div id="d-edite">
+{% if p.user.username == user.username %}
+<p class="Edite" id="{{ p.id }}">Edit</p>
+{% endif %}
+</div>
+
+
+<span id="d-all">
+<span id="s-con"><div id="a{{p.id}}" class="d-con">{{ p.content }}</div></span>
+<div class="d-con" id="timestamp">{{ p.timestamp }}</div>
+
+{% for x in p.luser.all %}
+{% if x == user %}
+<span id="c-{{ p.id }}" class="c-div">
+<button class="Like" id="{{ p.id }}">Unlike</button>
+</span>
+{% endif %}
+{% empty %}
+<button class="Like" id="{{ p.id }}">Like</button>
+{% endfor %}
+
+<span id="s-like"><div id="l-{{ p.id }}" class="d-con">{{ p.likes }}</div></span>
+</span>
+
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+<div id="edite">
+    <h1>Edit</h1>
+    <div class="d-form">
+        <form  method="post">
+            {% csrf_token %}
+            <p class="p-form">Edit Your Post</p>
+            <textarea name="content" class="textarea" id="e-content"></textarea>
+            <input type="submit" class="submit" value="Post" id="s-edite">
+        </form>
+        </div>
+</div>
+{% endblock %}

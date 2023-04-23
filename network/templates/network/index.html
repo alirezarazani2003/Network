@@ -1,0 +1,108 @@
+{% extends "network/layout.html" %}
+
+
+{% block head %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#Content').style.display = 'block';
+    document.querySelector('#edite').style.display = 'none';
+});
+</script>
+
+
+
+
+{% load static %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+
+
+<div id="Content">
+  <h1>All Posts</h1>
+<div class="d-form">
+<form action="/create" method="post">
+    {% csrf_token %}
+    <p class="p-form">New Post</p>
+    <textarea name="content" class="textarea"></textarea>
+    <input type="submit" class="submit" value="Post">
+</form>
+</div>
+
+
+
+{% for p in page.object_list %}
+<div class="for">
+<div id="username"><a href="{% url 'profile' p.user.id %}" id="a-username">{{ p.user }}</a></div>
+
+<div id="d-edite">
+{% if p.user.username == user.username %}
+<p class="Edite" id="{{ p.id }}">Edit</p>
+{% endif %}
+</div>
+
+<span id="d-all">
+<span id="s-con"><div id="a{{p.id}}" class="d-con">{{ p.content }}</div></span>
+<div class="d-con" id="timestamp">{{ p.timestamp }}</div>
+
+{% for x in p.luser.all %}
+{% if x == user %}
+<span id="c-{{ p.id }}" class="c-div">
+<button class="Like" id="{{ p.id }}">Unlike</button>
+</span>
+{% endif %}
+{% empty %}
+<button class="Like" id="{{ p.id }}">Like</button>
+{% endfor %}
+
+<span id="s-like"><div id="l-{{ p.id }}" class="d-con">{{ p.likes }}</div></span>
+</span>
+
+</div>
+{% endfor %}
+
+<div id="page-num">
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if page.has_previous %}
+      <li class="page-item"><a class="page-link" href="{% url 'index' %}?page={{ page.previous_page_number }}">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'index' %}?page={{ page.number|add:'-1' }}">{{ page.number|add:"-1" }}</a></li>
+      {% endif %}
+
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="{% url 'index' %}?page={{ page.number }}">{{ page.number }}<span class="sr-only">(current)</span></a>
+      </li>
+      
+      
+      {% if page.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'index' %}?page={{ page.number|add:1 }}">{{ page.number|add:1}}</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'index' %}?page={{ page.next_page_number }}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+
+
+</div>
+
+<div id="edite">
+  <h1>Edit</h1>
+    <div class="d-form">
+        <form  method="post">
+            {% csrf_token %}
+            <p class="p-form">Edit Your Post</p>
+            <textarea name="content" class="textarea" id="e-content"></textarea>
+            <input type="submit" class="submit" value="Post" id="s-edite">
+        </form>
+        </div>
+</div>
+
+
+{% endblock %}
+

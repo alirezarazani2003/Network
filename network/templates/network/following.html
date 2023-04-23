@@ -1,0 +1,68 @@
+{% extends "network/layout.html" %}
+
+
+{% block head %}
+
+
+<style>
+
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<h1>Following</h1>
+{% for p in page.object_list %}
+<div class="for">
+<div id="username"><a href="{% url 'profile' p.user.id %}" id="a-username">{{ p.user }}</a></div>
+
+<div id="d-edite">
+</div>
+
+<span id="s-con"><div id="a{{p.id}}" class="d-con">{{ p.content }}</div></span>
+<div class="d-con" id="timestamp">{{ p.timestamp }}</div>
+
+{% for x in p.luser.all %}
+{% if x == user %}
+<span id="c-{{ p.id }}" class="c-div">
+<button class="Like" id="{{ p.id }}">Unlike</button>
+</span>
+{% endif %}
+{% empty %}
+<button class="Like" id="{{ p.id }}">Like</button>
+{% endfor %}
+
+<span id="s-like"><div id="l-{{ p.id }}" class="d-con">{{ p.likes }}</div></span>
+
+
+
+
+
+
+</div>
+{% endfor %}
+
+<div id="page-num">
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if page.has_previous %}
+      <li class="page-item"><a class="page-link" href="{% url 'following' %}?page={{ page.previous_page_number }}">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'following' %}?page={{ page.number|add:'-1' }}">{{ page.number|add:"-1" }}</a></li>
+      {% endif %}
+
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="{% url 'following' %}?page={{ page.number }}">{{ page.number }}<span class="sr-only">(current)</span></a>
+      </li>
+      
+      
+      {% if page.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'following' %}?page={{ page.number|add:1 }}">{{ page.number|add:1}}</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'following' %}?page={{ page.next_page_number }}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+
+
+{% endblock %}
